@@ -1,8 +1,10 @@
-# About me
-[more details to come]
+# Short Bio About Me
+I am currently a staff scientist at Argonne National Laboratory, working on high performance scientific computing and machine learning and deep learning.
+
+I graduated from the University Illinois at Urbana-Champaign in 2016 with a Physics PhD, and joined Argonne as a postdoc. In Argonne, my research has been gradually switch over to high performance computing and data science. I first worked on developing density function thoery and many-body perturbation theory codes (Qbox and WEST), porting and optimizing them on new HPC platforms. 
 
 ## PhD Study
-I focused on computational condensed matter physics. [more details to come]
+I focused on computational condensed matter physics. In particular, I used first-principle approaches such as density functional theory and quantum Monte Carlo
 
 ## Current Research @ Argonne
 ### Exascale Computing Project
@@ -13,3 +15,4 @@ I am working on the ExaHDF5 project. The purpose is to deliever high performant 
 
 ### Physics
 [more details to come]
+
