@@ -111,7 +111,7 @@ To run benchmarks, ensure memory capacity is sufficient:
 
 
 ## Preliminary results on an ALCF system for llama_7b
-[](./images/scaling_7b.png)
+[](../images/scaling_7b.png)
 As we can see that the throughput increases as we increase the number of MPI processes. In
 this case, 8 GPU per node is used. The results here were obtained with running the code out of 
 the box. I purposely omitted the setup details. 
