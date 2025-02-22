@@ -7,5 +7,5 @@ layout: default
 
 - **Email**: huihuo.zheng@anl.gov
 - **Affiliation**: Argonne National Laboratory
-- **GitHub**: [github.com/huihuozheng](https://github.com/huihuozheng)
+- **GitHub**: [github.com/zhenghh04](https://github.com/zhenghh04)
 - **Google Scholar**: [Profile](https://scholar.google.com/citations?user=dd7fUtEAAAAJ)
