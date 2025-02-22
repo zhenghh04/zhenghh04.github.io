@@ -14,4 +14,3 @@ layout: default
 - **MLPerf Storage Benchmark**: Developing I/O and Storage Benchmarks for AI applications
 - **AuroraGPT**: Training LLMs on Aurora for scientfic research
 - **RAG and Knowledge Base**: Leveraging LLM and RAG to build Knowledge Base to for scientific and sociology applications. 
-
