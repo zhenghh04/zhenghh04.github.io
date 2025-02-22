@@ -12,4 +12,4 @@ For a full list, visit my [Google Scholar Profile](https://scholar.google.com/ci
 3. **Real-Time 3D Analysis during Electron Tomography**. *Nature Communications 2022*.
 
 ## Technical blog posts
-* [How to run LLM checkpoints with DLIO.](./blogs/llm_checkoint.html)
+* [How to run LLM checkpoints with DLIO.](./blogs/llm_checkpoint.html)
