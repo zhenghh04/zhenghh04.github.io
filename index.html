@@ -1,27 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Huihuo Zheng | Computer Scientist</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huihuo Zheng | Computer Scientist @ ALCF</title>
+  <meta name="description" content="Huihuo Zheng — Computer Scientist at Argonne National Laboratory. Research in HPC, scientific AI, parallel I/O, and agentic AI for scientific discovery.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Huihuo Zheng</h1>
-        <img src="images/Zheng_500.jpg" alt="hi" class="inline"/>
-        <h3>Computer Scientist, Argonne National Laboratory<!DOCTYPE html>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="about.html">About</a></li>
-            <li><a href="publications.html">Publications</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="churchlife.html">Church Life</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <main>
-        <p>Welcome to my personal webpage. I am a Computer Scientist at Argonne National Laboratory, working on high-performance computing, deep learning, and scientific data management.</p>
-    </main>
+
+<!-- ===== Navigation ===== -->
+<nav class="topnav">
+  <span class="brand">Huihuo Zheng</span>
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ===== Hero ===== -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="images/Zheng_500.jpg" alt="Huihuo Zheng">
+    </div>
+    <div class="hero-text">
+      <h1>Huihuo Zheng</h1>
+      <p class="title">Computer Scientist</p>
+      <p class="inst">Argonne National Laboratory &mdash; Lemont, IL</p>
+      <div class="hero-links">
+        <a class="btn btn-outline" href="https://scholar.google.com/citations?user=dd7fUtEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
+          &#127891; Google Scholar
+        </a>
+        <a class="btn btn-outline" href="https://github.com/zhenghh04" target="_blank" rel="noopener noreferrer">
+          &#9729; GitHub
+        </a>
+        <a class="btn btn-outline" href="mailto:hzheng@anl.gov">
+          &#9993; Email
+        </a>
+        <a class="btn btn-solid" href="publications.html">
+          Publications &rarr;
+        </a>
+      </div>
+      <div class="stats-row">
+        <div class="stat"><div class="num">2,200+</div><div class="lbl">Citations</div></div>
+        <div class="stat"><div class="num">19</div><div class="lbl">h-index</div></div>
+        <div class="stat"><div class="num">24</div><div class="lbl">i10-index</div></div>
+        <div class="stat"><div class="num">15+</div><div class="lbl">Years</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About (brief) ===== -->
+<section id="about-brief" class="section-white section-slim">
+  <div class="container">
+    <p class="intro-text">
+      I am a Computer Scientist in the <strong>Data Science group</strong> at
+      <a href="https://www.alcf.anl.gov" target="_blank" rel="noopener noreferrer">Argonne National Laboratory (ALCF)</a>.
+      My research spans high-performance computing, scientific AI, parallel I/O, and the emerging frontier
+      of <em>agentic AI systems for autonomous scientific discovery</em>.
+      I apply deep learning and large-scale computing to problems in physics, chemistry, materials science,
+      astrophysics, and earth systems modeling.
+      I co-lead the <strong>MLPerf Storage Benchmarking</strong> effort and am a core contributor to
+      several open-source HPC frameworks.
+    </p>
+    <p class="edu-text">
+      Ph.D. in Physics, University of Illinois at Urbana-Champaign (2016) &bull;
+      M.Phil., Hong Kong University of Science and Technology (2010) &bull;
+      B.Sc., Tsinghua University (2008)
+    </p>
+  </div>
+</section>
+
+<!-- ===== Research Areas ===== -->
+<section id="research" class="section-off">
+  <div class="container">
+    <h2 class="section-title">Research Areas</h2>
+    <div class="research-grid">
+
+      <div class="research-card">
+        <div class="icon">&#129302;</div>
+        <h3>Agentic AI for Scientific Discovery</h3>
+        <p>
+          Designing multi-agent systems and LLM-driven workflows that autonomously plan, execute,
+          and reason over scientific workloads at DOE leadership computing facilities.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="icon">&#9889;</div>
+        <h3>HPC &amp; Parallel I/O</h3>
+        <p>
+          Advanced HDF5 features (Cache VOL, node-local storage, topology-aware collective I/O),
+          storage benchmarking (MLPerf Storage, h5bench, DLIO), and exascale I/O optimization.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="icon">&#129504;</div>
+        <h3>Scientific AI &amp; Deep Learning</h3>
+        <p>
+          Large-scale distributed training (AuroraGPT), LLMs for science, AI-accelerated
+          electron tomography, gravitational wave detection, and drug/materials discovery.
+        </p>
+      </div>
+
+      <div class="research-card">
+        <div class="icon">&#9883;</div>
+        <h3>Computational Physics</h3>
+        <p>
+          Quantum Monte Carlo, density functional theory, many-body perturbation theory,
+          and dielectric-dependent hybrid functionals for heterogeneous materials.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Selected Publications ===== -->
+<section id="publications" class="section-white">
+  <div class="container">
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="text-muted mt1">Ranked by impact. For full list see <a href="publications.html">Publications</a> or
+      <a href="https://scholar.google.com/citations?user=dd7fUtEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.</p>
+
+    <div class="sel-pub-grid mt2">
+
+      <div class="sel-pub-card">
+        <div class="rank">1</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Dirac cones induced by accidental degeneracy in photonic crystals and zero-refractive-index materials
+            <span class="badge badge-cite">&#128218; 1,160</span>
+          </div>
+          <div class="pub-authors">X. Huang, Y. Lai, Z. H. Hang, <strong>H. Zheng</strong>, C. T. Chan</div>
+          <div class="pub-venue"><em>Nature Materials</em> 10, 582&ndash;586, 2011</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">2</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Computation of the correlated metal-insulator transition in vanadium dioxide from first principles
+            <span class="badge badge-cite">&#128218; 180</span>
+          </div>
+          <div class="pub-authors"><strong>H. Zheng</strong>, L. K. Wagner</div>
+          <div class="pub-venue"><em>Physical Review Letters</em> 114, 176401, 2015</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">3</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Dielectric dependent hybrid functionals for heterogeneous materials
+            <span class="badge badge-cite">&#128218; 80</span>
+          </div>
+          <div class="pub-authors"><strong>H. Zheng</strong>, M. Govoni, G. Galli</div>
+          <div class="pub-venue"><em>Physical Review Materials</em> 3, 073803, 2019</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">4</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Real-time 3D analysis during electron tomography using tomviz
+            <span class="badge badge-cite">&#128218; 67</span>
+          </div>
+          <div class="pub-authors">J. Schwartz, R. Harris, J. Pietryga, <strong>H. Zheng</strong>, P. Kumar, et al.</div>
+          <div class="pub-venue"><em>Nature Communications</em> 13, 4458, 2022</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">5</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Deep learning at scale for the construction of galaxy catalogs in the Dark Energy Survey
+            <span class="badge badge-cite">&#128218; 66</span>
+          </div>
+          <div class="pub-authors">A. Khan, E. A. Huerta, S. Wang, R. Gruendl, E. Jennings, <strong>H. Zheng</strong></div>
+          <div class="pub-venue"><em>Physics Letters B</em> 795, 248&ndash;258, 2019</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">6</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            DLIO: A Data-Centric Benchmark for Scientific Deep Learning Applications
+            <span class="badge badge-cite">&#128218; 54</span>
+          </div>
+          <div class="pub-authors">H. Devarajan, <strong>H. Zheng</strong>, A. Kougkas, X-H. Sun, V. Vishwanath</div>
+          <div class="pub-venue"><em>IEEE/ACM CCGrid</em>, 2021</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">7</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            HDF5 Cache VOL: Efficient and Scalable Parallel I/O through Caching Data on Node-local Storage
+            <span class="badge badge-cite">&#128218; 21</span>
+          </div>
+          <div class="pub-authors"><strong>H. Zheng</strong>, V. Vishwanath, Q. Koziol, H. Tang, J. Ravi, J. Mainzer, S. Byna</div>
+          <div class="pub-venue"><em>IEEE CCGrid</em>, 2022</div>
+        </div>
+      </div>
+
+      <div class="sel-pub-card">
+        <div class="rank">8</div>
+        <div class="pub-body">
+          <div class="pub-title">
+            Large language models for batteries
+            <span class="badge badge-cite">&#128218; 20</span>
+            <span class="badge badge-new">2025</span>
+          </div>
+          <div class="pub-authors">W. Zuo, <strong>H. Zheng</strong>, T. He, V. Vishwanath, M. K. Y. Chan, R. L. Stevens, K. Amine, et al.</div>
+          <div class="pub-venue"><em>Joule</em> 9(8), 2025</div>
+        </div>
+      </div>
+
+    </div>
+
+    <a class="view-all btn btn-solid" href="publications.html">View All Publications &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== Projects ===== -->
+<section id="projects" class="section-off">
+  <div class="container">
+    <h2 class="section-title">Projects &amp; Contributions</h2>
+
+    <div class="proj-grid mt2">
+
+      <div class="proj-card">
+        <h3>&#129302; <a href="https://github.com/argonne-lcf/agentic_workflows" target="_blank" rel="noopener noreferrer">Agentic AI for Scientific Discovery</a></h3>
+        <p>Multi-agent LLM framework for autonomous scientific workflows on DOE leadership computing
+           facilities. Integrates ClearML, Globus, and facility APIs for end-to-end automation.</p>
+        <div class="proj-tags">
+          <span class="tag">LLM</span><span class="tag">Multi-Agent</span><span class="tag">ALCF</span><span class="tag">MCP</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#128202; <a href="https://github.com/argonne-lcf/dlio_benchmark" target="_blank" rel="noopener noreferrer">DLIO Benchmark</a></h3>
+        <p>Deep Learning I/O benchmark for characterizing and optimizing storage performance
+           for AI training workloads. Used in the MLPerf Storage benchmark suite.</p>
+        <div class="proj-tags">
+          <span class="tag">Benchmark</span><span class="tag">HPC I/O</span><span class="tag">MLPerf</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#128190; <a href="https://github.com/hpc-io/vol-cache" target="_blank" rel="noopener noreferrer">HDF5 Cache VOL</a></h3>
+        <p>Virtual Object Layer plugin for HDF5 enabling transparent caching on node-local NVMe storage,
+           delivering up to 10&times; I/O acceleration for parallel scientific applications.</p>
+        <div class="proj-tags">
+          <span class="tag">HDF5</span><span class="tag">Parallel I/O</span><span class="tag">Exascale</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#128202; <a href="https://github.com/hpc-io/h5bench" target="_blank" rel="noopener noreferrer">h5bench</a></h3>
+        <p>Unified benchmark suite for evaluating HDF5 I/O performance patterns on pre-exascale
+           and exascale platforms. Covers diverse access patterns and VOL plugins.</p>
+        <div class="proj-tags">
+          <span class="tag">HDF5</span><span class="tag">Benchmark</span><span class="tag">Storage</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#127758; AuroraGPT</h3>
+        <p>Training large language models on the Aurora exascale supercomputer for science.
+           Targeting domain-specific LLMs for materials, biology, climate, and energy research.</p>
+        <div class="proj-tags">
+          <span class="tag">LLM</span><span class="tag">Aurora</span><span class="tag">Exascale</span><span class="tag">AI for Science</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#128176; MLPerf Storage</h3>
+        <p>Co-leading the MLPerf Storage working group to develop community benchmarks for
+           evaluating storage system performance under real AI training workloads.</p>
+        <div class="proj-tags">
+          <span class="tag">Benchmark</span><span class="tag">Storage</span><span class="tag">MLPerf</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#128300; <a href="https://github.com/jtschwar/tomo_TV" target="_blank" rel="noopener noreferrer">Tomo_TV</a></h3>
+        <p>Tomographic reconstruction algorithms with real-time 3D analysis during electron tomography experiments.
+           Enables dynamic compressed sensing at atomic resolution.</p>
+        <div class="proj-tags">
+          <span class="tag">Tomography</span><span class="tag">Real-time</span><span class="tag">Materials</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <h3>&#128172; AskHPC</h3>
+        <p>LLM-powered chatbot for HPC user support at leadership computing facilities.
+           Integrates facility documentation and knowledge bases via RAG. Published at SC'25.</p>
+        <div class="proj-tags">
+          <span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">User Support</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact" class="section-white">
+  <div class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid mt2">
+
+      <div class="contact-card">
+        <div class="icon">&#9993;</div>
+        <h3>Email</h3>
+        <p><a href="mailto:hzheng@anl.gov">hzheng@anl.gov</a></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="icon">&#127968;</div>
+        <h3>Office</h3>
+        <p>Argonne National Laboratory<br>Lemont, IL 60439</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="icon">&#9729;</div>
+        <h3>GitHub</h3>
+        <p><a href="https://github.com/zhenghh04" target="_blank" rel="noopener noreferrer">github.com/zhenghh04</a></p>
+      </div>
+
+      <div class="contact-card">
+        <div class="icon">&#127891;</div>
+        <h3>Scholar</h3>
+        <p><a href="https://scholar.google.com/citations?user=dd7fUtEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar Profile</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer>
+  <p>
+    &copy; 2025 Huihuo Zheng &mdash;
+    <a href="https://www.alcf.anl.gov" target="_blank" rel="noopener noreferrer">Argonne National Laboratory</a>
+    &mdash; <a href="https://github.com/zhenghh04/zhenghh04.github.io" target="_blank" rel="noopener noreferrer">Source</a>
+  </p>
+</footer>
+
 </body>
 </html>

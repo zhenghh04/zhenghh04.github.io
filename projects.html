@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Huihuo Zheng</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .proj-full-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1.75rem;
+    }
+    .proj-full-card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+    .proj-full-card h3 a { color: var(--navy); }
+    .proj-full-card h3 a:hover { color: var(--blue); text-decoration: none; }
+    .proj-full-card .proj-meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .proj-full-card p { font-size: 0.95rem; margin-bottom: 0.5rem; }
+    .proj-links { display: flex; gap: 0.75rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .proj-link-btn {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.8rem;
+      transition: all 0.15s;
+    }
+    .proj-link-btn:hover {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+      text-decoration: none;
+    }
+    .proj-category-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      border-left: 4px solid var(--blue);
+      padding-left: 0.75rem;
+      margin: 2.5rem 0 1.25rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a class="brand" href="index.html">Huihuo Zheng</a>
+  <ul>
+    <li><a href="index.html#research">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="section-white" style="padding-top:3.5rem;">
+  <div class="container">
+    <h2 class="section-title">Projects &amp; Contributions</h2>
+    <p class="text-muted mt1">Open-source tools, active research projects, and community benchmarking efforts.</p>
+
+    <!-- ── AI & Autonomy ── -->
+    <div class="proj-category-title">Agentic AI &amp; Autonomous Science</div>
+
+    <div class="proj-full-card">
+      <h3>&#129302; <a href="https://github.com/argonne-lcf/agentic_workflows" target="_blank" rel="noopener noreferrer">Agentic AI for Autonomous Scientific Discovery</a></h3>
+      <div class="proj-meta">Status: Active &bull; ALCF / DOE</div>
+      <p>
+        A multi-agent LLM framework enabling autonomous end-to-end scientific workflows on DOE leadership
+        computing facilities (Polaris, Aurora, Frontier, Perlmutter). The system uses specialized agents
+        for job submission, software building, data staging, model serving, and result analysis — all
+        orchestrated through a natural-language interface backed by MCP (Model Context Protocol) tools.
+      </p>
+      <p>
+        The framework integrates with ClearML for experiment tracking, Globus for data movement,
+        and facility-specific APIs (ALCF IRI, NERSC IRI, OLCF S3M). Applications include
+        training LLMs, running simulations, and driving iterative optimization loops without
+        human-in-the-loop intervention.
+      </p>
+      <div class="proj-links">
+        <a class="proj-link-btn" href="https://github.com/argonne-lcf/agentic_workflows" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">LLM</span><span class="tag">Multi-Agent</span><span class="tag">MCP</span><span class="tag">ALCF</span><span class="tag">Globus</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-full-card">
+      <h3>&#128172; AskHPC</h3>
+      <div class="proj-meta">Status: Active &bull; Published at SC'25</div>
+      <p>
+        An LLM-powered chatbot for HPC user support at leadership computing facilities.
+        Uses Retrieval-Augmented Generation (RAG) over facility documentation, software manuals,
+        and accumulated user-support tickets to provide accurate, contextualized answers to
+        user queries about system usage, job scheduling, software builds, and debugging.
+      </p>
+      <div class="proj-links">
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">User Support</span><span class="tag">HPC</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HPC I/O ── -->
+    <div class="proj-category-title">HPC &amp; Parallel I/O</div>
+
+    <div class="proj-full-card">
+      <h3>&#128202; <a href="https://github.com/argonne-lcf/dlio_benchmark" target="_blank" rel="noopener noreferrer">DLIO Benchmark</a></h3>
+      <div class="proj-meta">Status: Active &bull; Used in MLPerf Storage</div>
+      <p>
+        Deep Learning I/O (DLIO) is a benchmark suite for characterizing and optimizing storage and I/O
+        performance for AI training workloads. It models realistic data ingestion pipelines for image
+        classification, object detection, NLP, and scientific ML workflows.
+      </p>
+      <p>
+        DLIO is a core component of the MLPerf Storage benchmark and is used by storage vendors,
+        HPC centers, and research groups worldwide to evaluate system readiness for AI workloads.
+      </p>
+      <div class="proj-links">
+        <a class="proj-link-btn" href="https://github.com/argonne-lcf/dlio_benchmark" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">Benchmark</span><span class="tag">HPC I/O</span><span class="tag">MLPerf</span><span class="tag">Storage</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-full-card">
+      <h3>&#128190; <a href="https://github.com/hpc-io/vol-cache" target="_blank" rel="noopener noreferrer">HDF5 Cache VOL</a></h3>
+      <div class="proj-meta">Status: Active &bull; ExaIO / ExaHDF5</div>
+      <p>
+        A Virtual Object Layer (VOL) plugin for HDF5 that enables transparent, asynchronous caching of
+        dataset writes and reads on node-local NVMe storage. The Cache VOL reduces contention on
+        shared parallel file systems and can deliver up to 10&times; I/O speedup for checkpoint-heavy
+        workloads.
+      </p>
+      <div class="proj-links">
+        <a class="proj-link-btn" href="https://github.com/hpc-io/vol-cache" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">HDF5</span><span class="tag">Parallel I/O</span><span class="tag">Exascale</span><span class="tag">NVMe</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-full-card">
+      <h3>&#128202; <a href="https://github.com/hpc-io/h5bench" target="_blank" rel="noopener noreferrer">h5bench</a></h3>
+      <div class="proj-meta">Status: Active &bull; HPC-IO</div>
+      <p>
+        A unified benchmark suite for evaluating HDF5 I/O performance across diverse access patterns —
+        write, read, and metadata operations — on pre-exascale and exascale platforms.
+        Supports multiple VOL plugins including the Cache VOL and async VOL.
+      </p>
+      <div class="proj-links">
+        <a class="proj-link-btn" href="https://github.com/hpc-io/h5bench" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">HDF5</span><span class="tag">Benchmark</span><span class="tag">Storage</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Scientific AI ── -->
+    <div class="proj-category-title">Scientific AI &amp; Machine Learning</div>
+
+    <div class="proj-full-card">
+      <h3>&#127758; AuroraGPT</h3>
+      <div class="proj-meta">Status: Active &bull; ALCF / DOE</div>
+      <p>
+        Training large language models on the Aurora exascale supercomputer (Intel Xe GPUs) for
+        scientific applications. AuroraGPT targets domain-specific LLMs in materials science,
+        climate, biology, chemistry, and energy, leveraging Aurora's 10+ ExaFLOPS peak performance.
+      </p>
+      <div class="proj-links">
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">LLM</span><span class="tag">Aurora</span><span class="tag">Exascale</span><span class="tag">AI for Science</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-full-card">
+      <h3>&#128176; MLPerf Storage Benchmark</h3>
+      <div class="proj-meta">Status: Active &bull; MLCommons</div>
+      <p>
+        Co-leading the MLPerf Storage working group to develop community-standardized benchmarks for
+        evaluating the performance of storage systems under real AI training workloads.
+        The benchmark covers data loading bottlenecks, metadata performance, and scalability
+        across different storage architectures.
+      </p>
+      <div class="proj-links">
+        <a class="proj-link-btn" href="https://mlcommons.org/working-groups/storage/" target="_blank" rel="noopener noreferrer">MLCommons</a>
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">Benchmark</span><span class="tag">Storage</span><span class="tag">MLPerf</span><span class="tag">Community</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Imaging ── -->
+    <div class="proj-category-title">Scientific Imaging &amp; Tomography</div>
+
+    <div class="proj-full-card">
+      <h3>&#128300; <a href="https://github.com/jtschwar/tomo_TV" target="_blank" rel="noopener noreferrer">Tomo_TV &amp; tomviz</a></h3>
+      <div class="proj-meta">Status: Active &bull; University of Michigan / ALCF</div>
+      <p>
+        Real-time 3D analysis algorithms for electron tomography experiments.
+        Combines dynamic compressed sensing with GPU-accelerated reconstruction to enable
+        live structural analysis during experiments.
+        The tomviz platform provides an interactive environment for materials scientists,
+        published in <em>Nature Communications</em> (2022, 67 citations).
+      </p>
+      <div class="proj-links">
+        <a class="proj-link-btn" href="https://github.com/jtschwar/tomo_TV" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="proj-tags" style="display:flex;gap:0.4rem;align-items:center;flex-wrap:wrap;">
+          <span class="tag">Tomography</span><span class="tag">Real-time</span><span class="tag">Materials</span><span class="tag">GPU</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>
+    &copy; 2025 Huihuo Zheng &mdash;
+    <a href="https://www.alcf.anl.gov" target="_blank" rel="noopener noreferrer">Argonne National Laboratory</a>
+  </p>
+</footer>
+
+</body>
+</html>
