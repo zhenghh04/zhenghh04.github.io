@@ -7,17 +7,17 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:   #1d3557;
-  --blue:   #457b9d;
-  --sky:    #a8d8ea;
+  --navy:   #1b3a2d;
+  --blue:   #2a9d8f;
+  --sky:    #8ecfc9;
   --white:  #ffffff;
-  --off:    #f8f9fa;
-  --muted:  #6c757d;
-  --text:   #2d3748;
-  --border: #e2e8f0;
+  --off:    #f4f9f6;
+  --muted:  #5a6e65;
+  --text:   #1e2d26;
+  --border: #d4e6de;
   --accent: #e63946;
   --radius: 8px;
-  --shadow: 0 2px 16px rgba(29,53,87,0.08);
+  --shadow: 0 2px 16px rgba(27,58,45,0.08);
   --font:   'Inter', 'Segoe UI', system-ui, sans-serif;
 }
 
@@ -106,7 +106,7 @@ section {
 
 /* ---------- Hero ---------- */
 #hero {
-  background: linear-gradient(135deg, var(--navy) 0%, #2a4a6b 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, #254d3a 100%);
   color: var(--white);
   padding: 5rem 0;
 }
@@ -190,7 +190,7 @@ section {
 }
 
 .btn-solid:hover {
-  background: #5a9cbf;
+  background: #238c7e;
   color: var(--white);
   text-decoration: none;
 }
