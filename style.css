@@ -710,6 +710,7 @@ footer a { color: var(--sky); }
 .mt2 { margin-top: 2rem; }
 .text-muted { color: var(--muted); font-size: 0.9rem; }
 .view-all { display: inline-block; margin-top: 1.5rem; }
+.talks-more { display: inline-block; margin-top: 1.5rem; }
 .divider { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
 
 /* ---------- Responsive / Mobile-first ---------- */
