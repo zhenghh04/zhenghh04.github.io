@@ -437,15 +437,17 @@ section {
   flex-shrink: 0;
   background: var(--navy);
   color: var(--white);
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
+  min-width: 3rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
+  font-size: 0.72rem;
   font-weight: 700;
   margin-top: 0.1rem;
+  letter-spacing: 0.01em;
+  height: 1.6rem;
 }
 
 /* ---------- Projects ---------- */
