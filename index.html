@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Huihuo Zheng | Computer Scientist @ ALCF</title>
   <meta name="description" content="Huihuo Zheng — Computer Scientist at Argonne National Laboratory. Research in HPC, scientific AI, parallel I/O, and agentic AI for scientific discovery.">
+
+  <!-- Open Graph / social cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zhenghh04.github.io/">
+  <meta property="og:title" content="Huihuo Zheng | Computer Scientist @ ALCF">
+  <meta property="og:description" content="Computer Scientist at Argonne National Laboratory working on HPC, scientific AI, parallel I/O, and agentic AI for autonomous scientific discovery.">
+  <meta property="og:image" content="https://zhenghh04.github.io/images/Zheng_500.jpg">
+  <meta name="twitter:card" content="summary">
+
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,8 +22,9 @@
 
 <!-- ===== Navigation ===== -->
 <nav class="topnav">
-  <span class="brand">Huihuo Zheng</span>
+  <a class="brand" href="index.html">Huihuo Zheng</a>
   <ul>
+    <li><a href="#news">News</a></li>
     <li><a href="#research">Research</a></li>
     <li><a href="#publications">Publications</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -45,6 +55,9 @@
         </a>
         <a class="btn btn-solid" href="publications.html">
           Publications &rarr;
+        </a>
+        <a class="btn btn-cv" href="cv.pdf" target="_blank" rel="noopener noreferrer">
+          &#128196; CV
         </a>
       </div>
       <div class="stats-row">
@@ -78,11 +91,68 @@
   </div>
 </section>
 
+<!-- ===== News & Updates ===== -->
+<section id="news" class="section-off section-slim">
+  <div class="container">
+    <h2 class="section-title">News &amp; Updates</h2>
+    <ul class="news-list mt2">
+      <li>
+        <span class="news-date">Jun 2026</span>
+        <span class="news-text">
+          Paper on <em>Agentic AI workflows for autonomous scientific discovery</em> submitted.
+          Framework demonstrated on Polaris, Aurora, and Frontier.
+        </span>
+      </li>
+      <li>
+        <span class="news-date">May 2026</span>
+        <span class="news-text">
+          MLPerf Storage v3.0 benchmark results published with new AI training workload categories.
+          DLIO benchmark used across all submissions.
+        </span>
+      </li>
+      <li>
+        <span class="news-date">Jan 2026</span>
+        <span class="news-text">
+          Invited talk at the <em>DOE ASCR Workshop on Autonomous Scientific Discovery</em>, Washington D.C.
+        </span>
+      </li>
+      <li>
+        <span class="news-date">Nov 2025</span>
+        <span class="news-text">
+          <strong>"AskHPC: A ChatBot for HPC User Support"</strong> presented at the SC&rsquo;25 Workshops, St. Louis, MO.
+          [<a href="publications.html">paper</a>]
+        </span>
+      </li>
+      <li>
+        <span class="news-date">Sep 2025</span>
+        <span class="news-text">
+          <strong>"Aurora: Architecting Argonne&rsquo;s First Exascale Supercomputer"</strong> preprint posted on arXiv.
+          [<a href="https://arxiv.org/abs/2509.08207" target="_blank" rel="noopener noreferrer">arXiv:2509.08207</a>]
+        </span>
+      </li>
+      <li>
+        <span class="news-date">Jun 2025</span>
+        <span class="news-text">
+          <strong>"Large language models for batteries"</strong> published in <em>Joule</em>.
+          [<a href="publications.html">paper</a>]
+        </span>
+      </li>
+      <li>
+        <span class="news-date">Jun 2025</span>
+        <span class="news-text">
+          <strong>"HiPerRAG"</strong> presented at PASC 2025 &mdash; high-performance RAG for scientific insights at exascale.
+          [<a href="publications.html">paper</a>]
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
 <!-- ===== Research Areas ===== -->
-<section id="research" class="section-off">
+<section id="research" class="section-white">
   <div class="container">
     <h2 class="section-title">Research Areas</h2>
-    <div class="research-grid">
+    <div class="research-grid mt2">
 
       <div class="research-card">
         <div class="icon">&#129302;</div>
@@ -125,7 +195,7 @@
 </section>
 
 <!-- ===== Selected Publications ===== -->
-<section id="publications" class="section-white">
+<section id="publications" class="section-off">
   <div class="container">
     <h2 class="section-title">Selected Publications</h2>
     <p class="text-muted mt1">Ranked by impact. For full list see <a href="publications.html">Publications</a> or
@@ -139,9 +209,14 @@
           <div class="pub-title">
             Dirac cones induced by accidental degeneracy in photonic crystals and zero-refractive-index materials
             <span class="badge badge-cite">&#128218; 1,160</span>
+            <span class="badge badge-highlight">&#11088; Highly Cited</span>
           </div>
           <div class="pub-authors">X. Huang, Y. Lai, Z. H. Hang, <strong>H. Zheng</strong>, C. T. Chan</div>
           <div class="pub-venue"><em>Nature Materials</em> 10, 582&ndash;586, 2011</div>
+          <div class="pub-summary">Dirac cones analogous to those in graphene can be engineered in 2D photonic crystals through accidental degeneracy, enabling near-zero-refractive-index materials with exotic wave propagation properties.</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1038/nmat3030" target="_blank" rel="noopener noreferrer">paper</a>
+          </div>
         </div>
       </div>
 
@@ -154,6 +229,10 @@
           </div>
           <div class="pub-authors"><strong>H. Zheng</strong>, L. K. Wagner</div>
           <div class="pub-venue"><em>Physical Review Letters</em> 114, 176401, 2015</div>
+          <div class="pub-summary">Quantum Monte Carlo resolves the longstanding debate on the VO&#8322; metal-insulator transition, demonstrating that electron correlation — not merely lattice distortion — drives the phase change.</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1103/PhysRevLett.114.176401" target="_blank" rel="noopener noreferrer">paper</a>
+          </div>
         </div>
       </div>
 
@@ -166,6 +245,10 @@
           </div>
           <div class="pub-authors"><strong>H. Zheng</strong>, M. Govoni, G. Galli</div>
           <div class="pub-venue"><em>Physical Review Materials</em> 3, 073803, 2019</div>
+          <div class="pub-summary">A position-dependent hybrid functional adapts to the local dielectric environment in heterogeneous systems, achieving GW-level band-gap accuracy at DFT cost.</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1103/PhysRevMaterials.3.073803" target="_blank" rel="noopener noreferrer">paper</a>
+          </div>
         </div>
       </div>
 
@@ -178,6 +261,11 @@
           </div>
           <div class="pub-authors">J. Schwartz, R. Harris, J. Pietryga, <strong>H. Zheng</strong>, P. Kumar, et al.</div>
           <div class="pub-venue"><em>Nature Communications</em> 13, 4458, 2022</div>
+          <div class="pub-summary">Real-time 3D tomographic reconstruction during live electron microscopy lets scientists make mid-experiment decisions at near-atomic resolution, eliminating the traditional hours-long post-acquisition wait.</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1038/s41467-022-32046-0" target="_blank" rel="noopener noreferrer">paper</a>
+            <a href="https://github.com/OpenChemistry/tomviz" target="_blank" rel="noopener noreferrer">code</a>
+          </div>
         </div>
       </div>
 
@@ -190,6 +278,10 @@
           </div>
           <div class="pub-authors">A. Khan, E. A. Huerta, S. Wang, R. Gruendl, E. Jennings, <strong>H. Zheng</strong></div>
           <div class="pub-venue"><em>Physics Letters B</em> 795, 248&ndash;258, 2019</div>
+          <div class="pub-summary">Deep learning classification of hundreds of millions of galaxies in the Dark Energy Survey scales efficiently to 2,048 GPUs, enabling petabyte-scale astrophysics catalogs without human labeling.</div>
+          <div class="pub-links">
+            <a href="https://doi.org/10.1016/j.physletb.2019.06.009" target="_blank" rel="noopener noreferrer">paper</a>
+          </div>
         </div>
       </div>
 
@@ -202,6 +294,11 @@
           </div>
           <div class="pub-authors">H. Devarajan, <strong>H. Zheng</strong>, A. Kougkas, X-H. Sun, V. Vishwanath</div>
           <div class="pub-venue"><em>IEEE/ACM CCGrid</em>, 2021</div>
+          <div class="pub-summary">DLIO faithfully reproduces the I/O patterns of scientific deep learning workloads, giving storage vendors and HPC centers a reproducible, configurable tool for measuring AI storage performance.</div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2102.12853" target="_blank" rel="noopener noreferrer">arXiv</a>
+            <a href="https://github.com/argonne-lcf/dlio_benchmark" target="_blank" rel="noopener noreferrer">code</a>
+          </div>
         </div>
       </div>
 
@@ -214,6 +311,10 @@
           </div>
           <div class="pub-authors"><strong>H. Zheng</strong>, V. Vishwanath, Q. Koziol, H. Tang, J. Ravi, J. Mainzer, S. Byna</div>
           <div class="pub-venue"><em>IEEE CCGrid</em>, 2022</div>
+          <div class="pub-summary">A transparent HDF5 caching plugin stages I/O on node-local NVMe SSDs, delivering up to 10&times; speedup for checkpoint-intensive HPC applications with no application code changes required.</div>
+          <div class="pub-links">
+            <a href="https://github.com/hpc-io/vol-cache" target="_blank" rel="noopener noreferrer">code</a>
+          </div>
         </div>
       </div>
 
@@ -227,6 +328,10 @@
           </div>
           <div class="pub-authors">W. Zuo, <strong>H. Zheng</strong>, T. He, V. Vishwanath, M. K. Y. Chan, R. L. Stevens, K. Amine, et al.</div>
           <div class="pub-venue"><em>Joule</em> 9(8), 2025</div>
+          <div class="pub-summary">LLMs can reason over electrochemical literature to autonomously propose, evaluate, and prioritize battery material hypotheses, suggesting a new role for AI in accelerating energy storage research.</div>
+          <div class="pub-links">
+            <a href="publications.html">paper</a>
+          </div>
         </div>
       </div>
 
@@ -237,7 +342,7 @@
 </section>
 
 <!-- ===== Projects ===== -->
-<section id="projects" class="section-off">
+<section id="projects" class="section-white">
   <div class="container">
     <h2 class="section-title">Projects &amp; Contributions</h2>
 
@@ -289,7 +394,7 @@
       </div>
 
       <div class="proj-card">
-        <h3>&#128176; MLPerf Storage</h3>
+        <h3>&#128176; <a href="https://mlcommons.org/working-groups/storage/" target="_blank" rel="noopener noreferrer">MLPerf Storage</a></h3>
         <p>Co-leading the MLPerf Storage working group to develop community benchmarks for
            evaluating storage system performance under real AI training workloads.</p>
         <div class="proj-tags">
@@ -298,7 +403,7 @@
       </div>
 
       <div class="proj-card">
-        <h3>&#128300; <a href="https://github.com/jtschwar/tomo_TV" target="_blank" rel="noopener noreferrer">Tomo_TV</a></h3>
+        <h3>&#128300; <a href="https://github.com/jtschwar/tomo_TV" target="_blank" rel="noopener noreferrer">Tomo_TV / tomviz</a></h3>
         <p>Tomographic reconstruction algorithms with real-time 3D analysis during electron tomography experiments.
            Enables dynamic compressed sensing at atomic resolution.</p>
         <div class="proj-tags">
@@ -309,13 +414,59 @@
       <div class="proj-card">
         <h3>&#128172; AskHPC</h3>
         <p>LLM-powered chatbot for HPC user support at leadership computing facilities.
-           Integrates facility documentation and knowledge bases via RAG. Published at SC'25.</p>
+           Integrates facility documentation and knowledge bases via RAG. Published at SC&rsquo;25.</p>
         <div class="proj-tags">
           <span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">User Support</span>
         </div>
       </div>
 
     </div>
+    <a class="view-all btn btn-solid" href="projects.html">View All Projects &rarr;</a>
+  </div>
+</section>
+
+<!-- ===== Talks (brief) ===== -->
+<section id="talks" class="section-off section-slim">
+  <div class="container">
+    <h2 class="section-title">Selected Talks</h2>
+    <ul class="talk-list mt2">
+      <li>
+        <span class="talk-date">Jan 2026</span>
+        <span class="talk-body">
+          <em>DOE ASCR Workshop on Autonomous Scientific Discovery</em> &mdash;
+          Agentic AI for Autonomous Scientific Workflows at Exascale &bull; <strong>Invited</strong>
+        </span>
+      </li>
+      <li>
+        <span class="talk-date">Nov 2025</span>
+        <span class="talk-body">
+          <em>SC&rsquo;25 Workshops</em> &mdash;
+          AskHPC: A ChatBot for High Performance Computing User Support
+        </span>
+      </li>
+      <li>
+        <span class="talk-date">Jun 2025</span>
+        <span class="talk-body">
+          <em>PASC 2025</em>, Zurich &mdash;
+          HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights
+        </span>
+      </li>
+      <li>
+        <span class="talk-date">Nov 2024</span>
+        <span class="talk-body">
+          <em>SC24</em>, Atlanta &mdash;
+          DFTracer: An Analysis-Friendly Data Flow Tracer for AI-Driven Workflows
+        </span>
+      </li>
+      <li>
+        <span class="talk-date">May 2022</span>
+        <span class="talk-body">
+          <em>IEEE CCGrid 2022</em> &mdash;
+          HDF5 Cache VOL: Efficient and Scalable Parallel I/O through Caching on Node-local Storage
+        </span>
+      </li>
+    </ul>
+    <a class="view-all btn btn-solid" href="about.html#talks" style="margin-top:1.5rem;display:inline-block;">All Talks &rarr;</a>
   </div>
 </section>
 
@@ -350,13 +501,18 @@
       </div>
 
     </div>
+    <p class="collab-note mt2">
+      <strong>Prospective collaborators &amp; students:</strong> I am always interested in collaborations
+      at the intersection of HPC, scientific AI, and autonomous workflows. Please send an email with
+      a brief description of your interests and your CV. See the <a href="about.html#collab">About</a> page for more details.
+    </p>
   </div>
 </section>
 
 <!-- ===== Footer ===== -->
 <footer>
   <p>
-    &copy; 2025 Huihuo Zheng &mdash;
+    &copy; 2026 Huihuo Zheng &mdash;
     <a href="https://www.alcf.anl.gov" target="_blank" rel="noopener noreferrer">Argonne National Laboratory</a>
     &mdash; <a href="https://github.com/zhenghh04/zhenghh04.github.io" target="_blank" rel="noopener noreferrer">Source</a>
   </p>

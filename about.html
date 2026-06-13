@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Huihuo Zheng</title>
+  <meta name="description" content="About Huihuo Zheng — Computer Scientist at ALCF, researcher in HPC, scientific AI, and agentic workflows.">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,6 +14,7 @@
 <nav class="topnav">
   <a class="brand" href="index.html">Huihuo Zheng</a>
   <ul>
+    <li><a href="index.html#news">News</a></li>
     <li><a href="index.html#research">Research</a></li>
     <li><a href="publications.html">Publications</a></li>
     <li><a href="projects.html">Projects</a></li>
@@ -21,58 +23,67 @@
   </ul>
 </nav>
 
+<!-- ===== Bio ===== -->
 <section class="section-white" style="padding-top:3.5rem;">
   <div class="container">
     <h2 class="section-title">About</h2>
 
-    <div class="about-grid">
+    <div class="about-grid mt2">
 
       <div class="about-photo">
         <img src="images/Zheng_500.jpg" alt="Huihuo Zheng">
+        <div class="about-quick-links">
+          <a class="btn btn-solid" href="cv.pdf" target="_blank" rel="noopener noreferrer">&#128196; Download CV</a>
+          <a class="btn btn-outline-dark" href="mailto:hzheng@anl.gov">&#9993; Email</a>
+          <a class="btn btn-outline-dark" href="https://scholar.google.com/citations?user=dd7fUtEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">&#127891; Scholar</a>
+        </div>
       </div>
 
       <div class="about-content">
-        <h3>Academic Biography</h3>
+        <h3>Biography</h3>
         <p>
-          I am a Computer Scientist in the Data Science group at
+          I am a Computer Scientist in the <strong>Data Science group</strong> at
           <a href="https://www.alcf.anl.gov" target="_blank" rel="noopener noreferrer">Argonne National Laboratory (ALCF)</a>.
-          My research interests span data management and parallel I/O, large-scale distributed training,
-          and agentic AI for autonomous scientific discovery.
-          I apply high-performance computing and deep learning to domain sciences including physics, chemistry,
-          materials science, astrophysics, and earth systems.
-          I also co-lead the <strong>MLPerf Storage Benchmarking</strong> group.
+          My research spans high-performance computing, parallel I/O, large-scale distributed training,
+          and &mdash; most recently &mdash; <em>agentic AI systems for autonomous scientific discovery</em>.
+        </p>
+        <p>
+          I apply deep learning and exascale computing to domain sciences including physics, chemistry,
+          materials science, astrophysics, and earth systems modeling.
+          I co-lead the <strong>MLPerf Storage Benchmarking</strong> working group and am a core contributor
+          to open-source HPC frameworks including
+          <a href="https://github.com/argonne-lcf/dlio_benchmark" target="_blank" rel="noopener noreferrer">DLIO</a>,
+          <a href="https://github.com/hpc-io/vol-cache" target="_blank" rel="noopener noreferrer">HDF5 Cache VOL</a>, and
+          <a href="https://github.com/hpc-io/h5bench" target="_blank" rel="noopener noreferrer">h5bench</a>.
         </p>
         <p>
           I received my Ph.D. in Physics from the University of Illinois at Urbana-Champaign in 2016,
-          with a background in condensed matter physics, including first-principles simulations using
-          density functional theory and Quantum Monte Carlo.
-          I joined ALCF as a Theta Early Science postdoc in 2016 and transitioned to the Data Science group in 2018.
-        </p>
-        <p>
-          My current projects include: (1) ExaIO/ExaHDF5 — advanced HDF5 for efficient parallel I/O;
-          (2) data management and I/O optimization for AI workloads; (3) scalable image reconstruction;
-          and (4) agentic AI systems for orchestrating autonomous scientific workflows across DOE facilities.
+          with a dissertation on correlated electron systems using Quantum Monte Carlo.
+          I joined ALCF as a Theta Early Science postdoc in 2016, working on first-principles simulations
+          of interfacial systems and nanoparticles. In 2018 I transitioned to the Data Science group
+          to focus on scaling AI workloads and optimizing I/O for leadership-class supercomputers.
+          Since 2023, I have been building agentic AI infrastructure for autonomous scientific workflows
+          across DOE facilities.
         </p>
 
         <h3 style="margin-top:1.5rem;">Education</h3>
-        <ul style="list-style:none;padding:0;margin:0 0 1.5rem 0;display:flex;flex-direction:column;gap:0.5rem;">
-          <li><strong>Ph.D. in Physics</strong> — University of Illinois at Urbana-Champaign, 2016</li>
-          <li><strong>M.Phil. in Physics</strong> — Hong Kong University of Science and Technology, 2010</li>
-          <li><strong>B.Sc. in Physics</strong> — Tsinghua University, 2008</li>
+        <ul class="edu-list">
+          <li><strong>Ph.D. in Physics</strong> &mdash; University of Illinois at Urbana-Champaign, 2016</li>
+          <li><strong>M.Phil. in Physics</strong> &mdash; Hong Kong University of Science and Technology, 2010</li>
+          <li><strong>B.Sc. in Physics</strong> &mdash; Tsinghua University, 2008</li>
         </ul>
 
-        <h3>Personal</h3>
+        <h3 style="margin-top:1.5rem;">Personal</h3>
         <p>
-          I grew up in a small village in southern China. Both of my parents are farmers who instilled
-          in me the value of education. My curiosity about nature led me to pursue physics through a Ph.D.,
-          while deeper questions about the meaning of life eventually led me to faith.
-          I became a Christian in Hong Kong in 2010 and have found that my work, family life, and personal
-          life are all means to grow and find purpose.
+          I grew up in a small village in southern China, where both of my parents are farmers.
+          My curiosity about nature led me to pursue physics through a Ph.D.;
+          deeper questions about meaning eventually led me to faith.
+          I became a Christian in Hong Kong in 2010, and I find that work, family, and personal life
+          are all means to grow and find purpose.
         </p>
         <p>
-          I am married and live in Glen Ellyn, IL with my wife and two children.
-          Outside of work, I enjoy hiking, walking in nature preserves, and distance running —
-          I have completed seven full marathons.
+          I live in Glen Ellyn, IL with my wife and two children. Outside of work I enjoy hiking,
+          walking in nature preserves, and distance running &mdash; I have completed seven full marathons.
         </p>
       </div>
 
@@ -80,9 +91,137 @@
   </div>
 </section>
 
+<!-- ===== Talks & Invited Lectures ===== -->
+<section id="talks" class="section-off" style="padding:4rem 0;">
+  <div class="container">
+    <h2 class="section-title">Talks &amp; Invited Lectures</h2>
+
+    <div class="talk-full-list mt2">
+
+      <div class="talk-year-group">
+        <div class="pub-year">2026</div>
+        <div class="talk-entry">
+          <div class="talk-meta">Jan 2026 &bull; Washington D.C.</div>
+          <div class="talk-title-full">Agentic AI for Autonomous Scientific Workflows at Exascale</div>
+          <div class="talk-venue-full"><em>DOE ASCR Workshop on Autonomous Scientific Discovery</em> &mdash; <strong>Invited</strong></div>
+        </div>
+      </div>
+
+      <div class="talk-year-group">
+        <div class="pub-year">2025</div>
+        <div class="talk-entry">
+          <div class="talk-meta">Nov 2025 &bull; St. Louis, MO</div>
+          <div class="talk-title-full">AskHPC: A ChatBot for High Performance Computing User Support</div>
+          <div class="talk-venue-full"><em>SC&rsquo;25 Workshops</em> &mdash; Paper presentation</div>
+        </div>
+        <div class="talk-entry">
+          <div class="talk-meta">Jun 2025 &bull; Zurich, Switzerland</div>
+          <div class="talk-title-full">HiPerRAG: High-Performance Retrieval Augmented Generation for Scientific Insights</div>
+          <div class="talk-venue-full"><em>PASC 2025 Conference</em> &mdash; Paper presentation</div>
+        </div>
+        <div class="talk-entry">
+          <div class="talk-meta">2025</div>
+          <div class="talk-title-full">Data Management and I/O Benchmarking for Exascale AI Workloads</div>
+          <div class="talk-venue-full"><em>MLCommons MLPerf Storage Working Group</em> &mdash; Community talk</div>
+        </div>
+      </div>
+
+      <div class="talk-year-group">
+        <div class="pub-year">2024</div>
+        <div class="talk-entry">
+          <div class="talk-meta">Nov 2024 &bull; Atlanta, GA</div>
+          <div class="talk-title-full">DFTracer: An Analysis-Friendly Data Flow Tracer for AI-Driven Workflows</div>
+          <div class="talk-venue-full"><em>SC24</em> &mdash; Paper presentation</div>
+        </div>
+        <div class="talk-entry">
+          <div class="talk-meta">Nov 2024 &bull; Atlanta, GA</div>
+          <div class="talk-title-full">MProt-DPO: Breaking the ExaFLOPS Barrier for Multimodal Protein Design</div>
+          <div class="talk-venue-full"><em>SC24</em> &mdash; Paper presentation</div>
+        </div>
+      </div>
+
+      <div class="talk-year-group">
+        <div class="pub-year">2022</div>
+        <div class="talk-entry">
+          <div class="talk-meta">May 2022</div>
+          <div class="talk-title-full">HDF5 Cache VOL: Efficient and Scalable Parallel I/O through Caching on Node-local Storage</div>
+          <div class="talk-venue-full"><em>IEEE CCGrid 2022</em> &mdash; Paper presentation</div>
+        </div>
+        <div class="talk-entry">
+          <div class="talk-meta">May 2022</div>
+          <div class="talk-title-full">Stimulus: Accelerate Data Management for Scientific AI Applications in HPC</div>
+          <div class="talk-venue-full"><em>IEEE CCGrid 2022</em> &mdash; Paper presentation</div>
+        </div>
+      </div>
+
+      <div class="talk-year-group">
+        <div class="pub-year">2021</div>
+        <div class="talk-entry">
+          <div class="talk-meta">May 2021</div>
+          <div class="talk-title-full">DLIO: A Data-Centric Benchmark for Scientific Deep Learning Applications</div>
+          <div class="talk-venue-full"><em>IEEE/ACM CCGrid 2021</em> &mdash; Paper presentation</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Teaching & Mentoring ===== -->
+<section id="teaching" class="section-white" style="padding:4rem 0;">
+  <div class="container">
+    <h2 class="section-title">Teaching &amp; Mentoring</h2>
+
+    <h3 class="subsection-h" style="margin-top:1.75rem;">Tutorials &amp; Short Courses</h3>
+    <ul class="teach-list">
+      <li>
+        <strong>Parallel I/O with HDF5 and DLIO</strong> &mdash;
+        Hands-on tutorial at the ALCF Computational Performance Workshop, 2021&ndash;2025.
+      </li>
+      <li>
+        <strong>Data Management for AI Workloads on Exascale Systems</strong> &mdash;
+        ATPESC (Argonne Training Program on Extreme-Scale Computing), invited instructor.
+      </li>
+      <li>
+        <strong>Introduction to LLMs and Agentic AI for Science</strong> &mdash;
+        ALCF AI Bootcamp, 2024&ndash;2025.
+      </li>
+    </ul>
+
+    <h3 class="subsection-h" style="margin-top:1.75rem;">Student &amp; Postdoc Mentoring</h3>
+    <p style="font-size:0.95rem;color:var(--text);">
+      I mentor students and postdocs through ALCF&rsquo;s summer internship and postdoctoral programs.
+      Past and current mentees have worked on topics including parallel I/O optimization,
+      benchmarking AI workloads, deep learning for materials science, and agentic workflow systems.
+    </p>
+  </div>
+</section>
+
+<!-- ===== Prospective Collaborators ===== -->
+<section id="collab" class="section-off section-slim">
+  <div class="container">
+    <h2 class="section-title">Prospective Collaborators</h2>
+    <div class="collab-box mt2">
+      <p>
+        I am always interested in collaborations at the intersection of
+        <strong>HPC, scientific AI, and autonomous workflows</strong>.
+        If you are a student, postdoc, or external researcher with a project connecting to my
+        research areas, I would be happy to hear from you.
+      </p>
+      <ul style="margin:0.5rem 0 1rem 1.5rem;font-size:0.95rem;line-height:1.8;">
+        <li><strong>Students &amp; postdocs:</strong> ALCF offers several programs for student and postdoc appointments.
+          Email <a href="mailto:hzheng@anl.gov">hzheng@anl.gov</a> with a brief description of your background and interests, and attach your CV.</li>
+        <li><strong>External researchers:</strong> If you are interested in using ALCF systems, DLIO/h5bench/MLPerf Storage benchmarks,
+          or in joint research on agentic AI for science, please reach out.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
 <footer>
   <p>
-    &copy; 2025 Huihuo Zheng &mdash;
+    &copy; 2026 Huihuo Zheng &mdash;
     <a href="https://www.alcf.anl.gov" target="_blank" rel="noopener noreferrer">Argonne National Laboratory</a>
   </p>
 </footer>
