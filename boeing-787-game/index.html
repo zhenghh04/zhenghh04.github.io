@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Boeing 787-10 Flight Simulator</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,sans-serif;background:#ffffff;color:#172b3b}body{padding:clamp(8px,2vw,20px)}
+.wrap{max-width:1100px;margin:0 auto}header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}header h1{font-size:clamp(18px,3.5vw,28px);margin:0;letter-spacing:-.5px}header p{font-size:12px;margin:2px 0 0;color:#536d7e}
+.toolbar{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:8px 0}button,select{font:600 13px system-ui;border:1px solid #c6d6e0;border-radius:10px;background:#f3f8fc;color:#173b54;padding:10px 12px;min-height:40px;cursor:pointer}button:active{background:#d5eaf6}select{flex:1;min-width:200px}button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #8bd4ff;outline-offset:2px}
+.scene{position:relative;overflow:hidden;border-radius:15px;border:1px solid #4b7692;background:#a3d7f2;height:min(76dvh,650px);min-height:400px;touch-action:none;user-select:none;-webkit-user-select:none}canvas{display:block;width:100%;height:100%}
+.hud{position:absolute;top:12px;left:12px;right:12px;display:flex;align-items:start;justify-content:space-between;pointer-events:none;gap:7px}.read{background:#102c43df;color:white;border:1px solid #ffffff2b;border-radius:9px;padding:9px 11px;font:650 clamp(10px,1.8vw,13px)/1.55 system-ui;box-shadow:0 3px 12px #09223825}.read:last-child{text-align:right}
+.stick{position:absolute;bottom:18px;left:18px;width:120px;height:120px;border:2px solid #fff9;border-radius:50%;background:#153c5899;display:grid;place-items:center;touch-action:none;box-shadow:0 0 0 7px #173e5130}.stick:before{content:"";position:absolute;width:1px;height:100%;background:#fff4}.stick:after{content:"";position:absolute;width:100%;height:1px;background:#fff4}.knob{position:relative;z-index:1;width:51px;height:51px;border:3px solid white;border-radius:50%;background:linear-gradient(135deg,#fff,#a5cee8);display:grid;place-items:center;color:#315d7b;font-size:23px;box-shadow:0 4px 12px #112f4788}
+.power{position:absolute;bottom:17px;right:14px;display:flex;flex-direction:column;align-items:center;gap:6px;background:#102c43e5;color:white;border-radius:11px;padding:10px 12px;font:700 11px system-ui}.power input{writing-mode:vertical-lr;direction:rtl;appearance:slider-vertical;width:28px;height:155px;accent-color:#89d8ff;touch-action:none}.gearbar{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:9px;background:#102c43e9;color:white;padding:8px;border-radius:12px;white-space:nowrap}.gearbar span{font:700 11px system-ui}.gearbar button{background:#287bb6;border:1px solid #91cafa;color:white;padding:8px 11px;font-size:12px;min-height:37px}
+.result{display:none;position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);padding:20px 25px;border-radius:13px;background:#102c43f5;color:white;text-align:center;min-width:190px;box-shadow:0 10px 25px #1235}.result strong{display:block;font-size:23px}.result small{font-size:13px}.result button{margin-top:12px;background:#2b88b9}
+.help{font-size:12px;color:#536d7e;margin:10px 2px 0;line-height:1.6}.help strong{color:#183c57}
+@media(max-width:600px){body{padding:8px}.scene{height:min(73dvh,560px);min-height:400px}.stick{bottom:67px;left:11px;width:97px;height:97px}.knob{width:43px;height:43px}.power{bottom:67px;right:9px;padding:7px}.power input{height:105px}.gearbar{bottom:8px;gap:5px;padding:6px}.gearbar span{font-size:10px}.gearbar button{font-size:11px;padding:7px 9px}.read{padding:6px 7px}}
+@media(orientation:landscape) and (max-height:550px){.scene{height:75dvh;min-height:290px}.stick{width:85px;height:85px;bottom:15px}.power{bottom:15px}.power input{height:80px}.gearbar{bottom:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div><h1>✈ Boeing 787-10 Flight Simulator</h1><p>Fly, turn, climb, land — or miss the runway. You are the pilot.</p></div><button id="camera">Camera: Chase</button></header>
+<div class="toolbar"><select id="route" aria-label="Flight route"><option value="0">Chicago O'Hare → New York JFK</option><option value="1">Los Angeles → San Francisco</option><option value="2">Seattle → Portland</option></select><button id="reset">↻ Restart flight</button></div>
+<div class="scene" id="scene">
+<canvas id="canvas" aria-label="3D chase camera showing Boeing 787-10 in flight"></canvas>
+<div class="hud"><div class="read" id="stats">BOEING 787-10<br>0 KT · ALT 6 M</div><div class="read" id="nav">ORD → JFK<br>HDG 000°</div></div>
+<div class="stick" id="stick" aria-label="Drag joystick to steer"><div class="knob" id="knob">✥</div></div>
+<div class="power">THRUST<input id="thrust" aria-label="Engine thrust" type="range" min="0" max="100" value="0" orient="vertical"><span id="percent">0%</span></div>
+<div class="gearbar"><span id="gearstatus">⚙ GEAR DOWN</span><button id="gear">↑ Retract</button></div>
+<div class="result" id="result"><strong id="resulttitle"></strong><small id="resultdetail"></small><div><button id="again">Fly again</button></div></div>
+</div>
+<div class="help" id="hint"><strong>How to fly:</strong> Raise THRUST, drag the joystick down to lift the nose and take off, then tap <strong>↑ Retract</strong>. Extend the gear before landing. At 0% thrust, the airplane stops moving in this game. Keyboard: arrows or WASD; G toggles gear.</div>
+</div>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id),cv=$('canvas'),ctx=cv.getContext('2d'),view=$('scene'),joy=$('stick'),knob=$('knob'),th=$('thrust');
+const routes=[['ORD','JFK',12000],['LAX','SFO',9000],['SEA','PDX',7200]],clamp=(x,a,b)=>Math.max(a,Math.min(b,x)),lerp=(a,b,t)=>a+(b-a)*t;
+let s,route,last=0,cam=0,drag=false,stick={x:0,y:0},keys=new Set();
+function gearUI(){let down=s.gearTarget===1;$('gear').textContent=down?'↑ Retract':'↓ Extend';$('gearstatus').textContent=down?'⚙ GEAR DOWN':'⚙ GEAR UP';$('gearstatus').style.color=down?'#a9ffbf':'#ffd18a'}
+function reset(){route=routes[+$('route').value]||routes[0];s={x:0,z:180,alt:6,speed:0,pitch:0,bank:0,heading:0,vs:0,mode:'ground',gear:1,gearTarget:1};th.value=0;stick={x:0,y:0};knob.style.transform='translate(0,0)';$('result').style.display='none';gearUI()}
+$('reset').onclick=reset;$('again').onclick=reset;$('route').onchange=reset;
+$('gear').onclick=()=>{if(['landed','crashed'].includes(s.mode))return;s.gearTarget=1-s.gearTarget;gearUI()};
+$('camera').onclick=()=>{cam=1-cam;$('camera').textContent=cam?'Camera: Close chase':'Camera: Chase'};
+function steer(e){let r=joy.getBoundingClientRect(),x=(e.clientX-r.left-r.width/2)/(r.width*.36),y=(e.clientY-r.top-r.height/2)/(r.height*.36),m=Math.max(1,Math.hypot(x,y));stick.x=x/m;stick.y=y/m;knob.style.transform=`translate(${stick.x*31}px,${stick.y*31}px)`}
+joy.addEventListener('pointerdown',e=>{drag=true;joy.setPointerCapture(e.pointerId);steer(e);e.preventDefault()});joy.addEventListener('pointermove',e=>{if(drag)steer(e)});
+function release(){drag=false;stick.x=stick.y=0;knob.style.transform='translate(0,0)'}joy.addEventListener('pointerup',release);joy.addEventListener('pointercancel',release);
+window.addEventListener('keydown',e=>{if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight','w','a','s','d','g'].includes(e.key)){if(e.target.tagName!=='SELECT'&&e.target.tagName!=='INPUT')e.preventDefault();keys.add(e.key.toLowerCase());if(e.key.toLowerCase()==='g'&&!e.repeat)$('gear').click()}});window.addEventListener('keyup',e=>keys.delete(e.key.toLowerCase()));
+function finish(ok,why){s.mode=ok?'landed':'crashed';$('result').style.display='block';$('resulttitle').textContent=ok?'🛬 Landed!':'💥 Crashed!';$('resultdetail').textContent=ok?'Welcome to '+route[1]+'!':(why||'Try again!')}
+function update(dt){if(s.mode==='landed'||s.mode==='crashed')return;
+s.gear=clamp(s.gear+Math.sign(s.gearTarget-s.gear)*dt*.7,0,1);if(Math.abs(s.gear-s.gearTarget)<.025)s.gear=s.gearTarget;
+let p=+th.value/100,x=stick.x,y=stick.y;if(keys.has('arrowleft')||keys.has('a'))x=-1;if(keys.has('arrowright')||keys.has('d'))x=1;if(keys.has('arrowup')||keys.has('w'))y=-1;if(keys.has('arrowdown')||keys.has('s'))y=1;
+if(p===0)s.speed=0;else s.speed=Math.max(0,s.speed+clamp(p*180-s.speed,-24*dt,15*dt));
+if(s.mode==='ground'){
+s.bank=lerp(s.bank,0,clamp(dt*3,0,1));s.pitch=lerp(s.pitch,s.speed>65?y*.19:0,clamp(dt*2,0,1));if(s.speed>0){s.heading+=x*dt*.04;s.x+=Math.sin(s.heading)*s.speed*dt;s.z+=Math.cos(s.heading)*s.speed*dt}
+if(s.gear<.12){finish(false,'Landing gear retracted on the ground!');return}
+if(s.speed>68&&s.pitch>.055){s.mode='air';s.vs=3}
+if(Math.abs(s.x)>39||s.z>2500)finish(false,'You left the runway!');
+}else{
+s.bank=lerp(s.bank,x*.83,clamp(dt*2.2,0,1));s.pitch=lerp(s.pitch,y*.29,clamp(dt*1.9,0,1));if(s.speed>0){s.heading+=Math.sin(s.bank)*(.3+s.speed/360)*dt;s.x+=Math.sin(s.heading)*s.speed*dt;s.z+=Math.cos(s.heading)*s.speed*dt}
+s.vs=p===0?-3:s.speed*Math.sin(s.pitch)-2;s.alt+=s.vs*dt;
+if(s.alt<=6){s.alt=6;if(s.gear<.85){finish(false,'Gear-up landing!');return}let on=Math.abs(s.x)<32&&s.z>route[2]+70&&s.z<route[2]+2400;finish(on&&s.vs>-7&&Math.abs(s.bank)<.22&&Math.abs(s.pitch)<.14&&Math.abs(Math.sin(s.heading))<.2&&s.speed<112,'Hard landing or missed runway!')}
+}}
+function resize(){let d=Math.min(2,window.devicePixelRatio||1),w=view.clientWidth,h=view.clientHeight;if(cv.width!==Math.round(w*d)||cv.height!==Math.round(h*d)){cv.width=Math.round(w*d);cv.height=Math.round(h*d)}ctx.setTransform(d,0,0,d,0,0);return[w,h]}
+function poly(pts,fill,stroke,lw=1){if(pts.length<3)return;ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
+function line(pts,color,lw=1){ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.strokeStyle=color;ctx.lineWidth=lw;ctx.stroke()}
+function oval(x,y,rx,ry,color){ctx.beginPath();ctx.ellipse(x,y,Math.max(.1,rx),Math.max(.1,ry),0,0,Math.PI*2);ctx.fillStyle=color;ctx.fill()}
+function world(w,h){let horizon=h*.44+s.pitch*185,sky=ctx.createLinearGradient(0,0,0,h);sky.addColorStop(0,'#2779b9');sky.addColorStop(.48,'#b5e2f6');sky.addColorStop(1,'#ecf7ff');ctx.fillStyle=sky;ctx.fillRect(0,0,w,h);
+ctx.save();ctx.translate(w/2,horizon);ctx.rotate(-s.bank*.43);ctx.translate(-w/2,-horizon);ctx.fillStyle='#8eae75';ctx.fillRect(-w*3,horizon,w*7,h*5);
+let f=Math.max(350,w*1.04);function pr(x,z,e=0){let dx=x-s.x,dz=z-s.z,co=Math.cos(s.heading),si=Math.sin(s.heading),xx=dx*co-dz*si,depth=dx*si+dz*co;if(depth<9)return null;let k=f/depth;return[w/2+xx*k,horizon+(s.alt-e)*k,depth]}
+function quad(a,b,d,e,color){let pts=[a,b,d,e].map(q=>pr(...q));if(pts.some(q=>!q))return;poly(pts,color)}
+for(let i=85;i>=0;i--){let z=Math.floor(s.z/350)*350+(i-4)*350;if(z<s.z+10)continue;for(let j=-5;j<=5;j++){let x=j*500;quad([x,z],[x+470,z],[x+470,z+330],[x,z+330],(i+j)%4===0?'#9dba7c':(i+j)%3===0?'#86aa70':'#91b47a')}}
+function airport(start){let end=start+2500,near=Math.max(start,s.z+10);if(near>=end)return;for(let i=38;i>=0;i--){let z1=near+(end-near)*i/39,z2=near+(end-near)*(i+1)/39;quad([-55,z1],[55,z1],[55,z2],[-55,z2],'#a9afa9');quad([-36,z1],[36,z1],[36,z2],[-36,z2],'#3d454c');quad([-35,z1],[-34,z1],[-34,z2],[-35,z2],'#f5f3e9');quad([34,z1],[35,z1],[35,z2],[34,z2],'#f5f3e9')}
+for(let z=start+80;z<end-30;z+=90)quad([-1.3,z],[1.3,z],[1.3,z+47],[-1.3,z+47],'#f6f5ea');for(let z of [start+110,end-170])for(let x=-25;x<=25;x+=8)quad([x-1.7,z],[x+1.7,z],[x+1.7,z+38],[x-1.7,z+38],'#fef7e8');quad([105,start+100],[155,start+100],[155,end-150],[105,end-150],'#8c9590');for(let z=start+45;z<end;z+=140)for(let x of [-40,40]){let q=pr(x,z,1);if(q&&q[0]>0&&q[0]<w&&q[1]>0&&q[1]<h)oval(q[0],q[1],clamp(300/q[2],.6,3),clamp(300/q[2],.6,3),'#fff0b7')}}
+airport(0);airport(route[2]);for(let i=0;i<170;i++){let z=i*130-1600,x=Math.sin(i*17.3)*3000;if(Math.abs(x)<250)continue;let q=pr(x,z);if(q&&q[0]>0&&q[0]<w&&q[1]>horizon&&q[1]<h){let r=clamp(1600/q[2],.5,12);oval(q[0],q[1]-r*.5,r,r,i%3?'#4c864d':'#367645')}}ctx.restore()}
+function aircraft(w,h){const cx=w/2,cy=h*(cam?.69:.68),F=Math.min(w*1.12,610)*(cam?1.3:1),camera=[0,78,-355];let faces=[],edges=[];
+function rotate(p){let[x,y,z]=p,cb=Math.cos(s.bank*.82),sb=Math.sin(s.bank*.82),xx=x*cb-y*sb,yy=x*sb+y*cb,cp=Math.cos(s.pitch*.9),sp=Math.sin(s.pitch*.9);return[xx,yy*cp-z*sp,yy*sp+z*cp]}
+function project(p){let[x,y,z]=rotate(p),dx=x,dy=y-camera[1],dz=z-camera[2],depth=dz*.976-dy*.214,up=dy*.976+dz*.214;return[cx+F*dx/Math.max(25,depth),cy-F*up/Math.max(25,depth),depth]}
+function face(pts,color,stroke){let pp=pts.map(project);faces.push({pp,color,stroke,depth:pp.reduce((a,q)=>a+q[2],0)/pp.length})}
+function edge(pts,color,width=1){edges.push({pp:pts.map(project),color,width})}
+function rod(a,b,r,color){let dx=b[0]-a[0],dy=b[1]-a[1],dz=b[2]-a[2],m=Math.hypot(dx,dy,dz)||1,ux=-dy/m,uy=dx/m;if(Math.abs(dx)+Math.abs(dy)<.01){ux=1;uy=0}face([[a[0]+ux*r,a[1]+uy*r,a[2]],[a[0]-ux*r,a[1]-uy*r,a[2]],[b[0]-ux*r,b[1]-uy*r,b[2]],[b[0]+ux*r,b[1]+uy*r,b[2]]],color)}
+function wheel(x,y,z,r=5){let N=12;for(let k=0;k<N;k++){let a=k*2*Math.PI/N,b=(k+1)*2*Math.PI/N;face([[x-2.1,y+r*Math.cos(a),z+r*Math.sin(a)],[x-2.1,y+r*Math.cos(b),z+r*Math.sin(b)],[x+2.1,y+r*Math.cos(b),z+r*Math.sin(b)],[x+2.1,y+r*Math.cos(a),z+r*Math.sin(a)]],'#20252b')}let disk=Array.from({length:18},(_,k)=>[x+2.15,y+r*Math.cos(k*Math.PI/9),z+r*Math.sin(k*Math.PI/9)]);face(disk,'#171d23','#6b747b');face(disk.map(q=>[q[0]+.1,y+(q[1]-y)*.43,z+(q[2]-z)*.43]),'#9ba5ad','#2b3540')}
+const rings=[[-130,.6],[-125,3.4],[-117,6.6],[-103,9.6],[-84,10.8],[-40,10.9],[0,10.9],[49,10.9],[85,10.5],[104,8.9],[117,5.6],[125,2.6],[130,.3]],N=20;
+for(let j=0;j<rings.length-1;j++){let[z1,r1]=rings[j],[z2,r2]=rings[j+1];for(let k=0;k<N;k++){let a=k*Math.PI*2/N,b=(k+1)*Math.PI*2/N,v=Math.round(181+70*(Math.sin((a+b)/2)+1)/2);face([[r1*Math.cos(a),r1*Math.sin(a),z1],[r1*Math.cos(b),r1*Math.sin(b),z1],[r2*Math.cos(b),r2*Math.sin(b),z2],[r2*Math.cos(a),r2*Math.sin(a),z2]],`rgb(${v},${Math.min(255,v+3)},${Math.min(255,v+7)})`)}}
+for(let side of [-1,1]){const span=[5,11,35,61,87,109,126,139,149],leading=[57,54,34,10,-15,-43,-70,-98,-131],trailing=[-31,-30,-37,-47,-60,-76,-94,-113,-134],rise=[-8.5,-8,-6,-2,4,12,21,29,36];for(let i=0;i<span.length-1;i++){face([[side*span[i],rise[i],leading[i]],[side*span[i+1],rise[i+1],leading[i+1]],[side*span[i+1],rise[i+1],trailing[i+1]],[side*span[i],rise[i],trailing[i]]],i%2===0?'#e9f1f6':'#dfeaf1','#8fa6b6')}
+face([[side*3,-8,59],[side*12,-8,54],[side*18,-7,33],[side*15,-8,-34],[side*4,-8,-42]],'#dce8f0','#a5b7c4');face([[side*5,-9,-40],[side*15,-8,-34],[side*18,-10,-39],[side*10,-12,-47],[side*4,-11,-44]],'#b5c8d4');edge(span.map((x,i)=>[side*x,rise[i]+.2,leading[i]]),'#fff',1.8);edge(span.map((x,i)=>[side*x,rise[i]+.2,trailing[i]]),'#829aab',.85);face([[side*7,7,-98],[side*33,9,-111],[side*52,12,-129],[side*7,7,-127]],'#e2eaf0','#8a9ca8');
+// Engine is forward of wing, suspended by a solid pylon.
+let ex=side*47,ey=-26,pylonTop=-4,forward=16;
+face([[ex-4,pylonTop,-5],[ex-4,pylonTop,35],[ex-4,-17,18+forward],[ex-4,-17,-19+forward]],'#b9cbd7','#91a8b7');face([[ex+4,pylonTop,-5],[ex+4,-17,-19+forward],[ex+4,-17,18+forward],[ex+4,pylonTop,35]],'#d8e5ee','#91a8b7');face([[ex-4,pylonTop,-5],[ex+4,pylonTop,-5],[ex+4,-17,-19+forward],[ex-4,-17,-19+forward]],'#a8bdca');
+let sections=[[-37,5.6],[-34,6.6],[-28,8.1],[-20,10.6],[-9,12],[5,12.7],[20,13.1],[29,12.6]],M=20;for(let j=0;j<sections.length-1;j++){let[z1,r1]=sections[j],[z2,r2]=sections[j+1];for(let k=0;k<M;k++){let a=k*2*Math.PI/M,b=(k+1)*2*Math.PI/M,v=Math.round(174+65*(Math.sin((a+b)/2)+1)/2);face([[ex+r1*Math.cos(a),ey+r1*Math.sin(a),z1+forward],[ex+r1*Math.cos(b),ey+r1*Math.sin(b),z1+forward],[ex+r2*Math.cos(b),ey+r2*Math.sin(b),z2+forward],[ex+r2*Math.cos(a),ey+r2*Math.sin(a),z2+forward]],`rgb(${v},${Math.min(255,v+4)},${Math.min(255,v+10)})`)}}
+const ring=(z,r)=>Array.from({length:24},(_,k)=>[ex+r*Math.cos(k*Math.PI/12),ey+r*Math.sin(k*Math.PI/12),z+forward]);face(ring(-37.5,5.6),'#aebdc8','#e6eef3');face(ring(-37.8,4.5),'#28333e','#8b9aa5');face(ring(-38,2.3),'#111b25')}
+if(s.gear>.025){let g=s.gear;for(let side of [-1,1]){let x=side*17,top=-8,low=-8-24*g;rod([x,top,-34],[x,low,-38],1.65,'#c0cad2');rod([x,top,-16],[x,low+4,-38],.9,'#8c9ba8');rod([x,low+1,-50],[x,low+1,-21],1.1,'#9ba9b4');for(let z of [-48,-36,-24]){wheel(x-5*g,low-3*g,z,4.6*g);wheel(x+5*g,low-3*g,z,4.6*g)}}let y=-8-21*g;rod([0,-9,91],[0,y,92],1.3,'#c3cdd5');rod([0,-9,102],[0,y+3,92],.7,'#91a1ac');wheel(-4*g,y-4*g,92,4*g);wheel(4*g,y-4*g,92,4*g)}
+for(let side of [-1,1]){face([[side*9.5,-6,-101],[side*10.7,-6,-58],[side*10.7,-6,58],[side*9,-6,102],[side*8,-9,100],[side*10,-9,55],[side*10,-9,-60],[side*7,-9,-102]],'#1268ac');face([[side*8,-9,-101],[side*10,-9,-55],[side*10,-9,54],[side*8,-9,100],[side*6,-10,97],[side*8,-10,52],[side*8,-10,-60]],'#62b3dd');for(let z=-83;z<96;z+=7){let r=z>85?10.5-(z-85)*.11:10.8;face([[side*r,2,z],[side*r,4.5,z],[side*r,4.5,z+2.2],[side*r,2,z+2.2]],'#34566c')}}
+face([[0,8,-92],[0,52,-116],[0,59,-134],[0,8,-129]],'#115d9e','#6796b9');face([[.3,12,-97],[.3,49,-118],[.3,56,-132],[.3,13,-124]],'#2e89bf');faces.sort((a,b)=>b.depth-a.depth);for(let f of faces)poly(f.pp.map(q=>[q[0],q[1]]),f.color,f.stroke,.7);for(let e of edges)line(e.pp.map(q=>[q[0],q[1]]),e.color,e.width)
+}
+function frame(t){let dt=Math.min(.05,(t-last)/1000||.016);last=t;let[w,h]=resize();update(dt);world(w,h);aircraft(w,h);let rem=Math.max(0,route[2]+1200-s.z),hdg=((Math.round(s.heading*180/Math.PI)%360)+360)%360;$('stats').innerHTML=`BOEING 787-10<br>${Math.round(s.speed*1.94384)} KT · ALT ${Math.round(s.alt)} M<br>V/S ${Math.round(s.vs)} M/S`;$('nav').innerHTML=`${route[0]} → ${route[1]}<br>${(rem/1000).toFixed(1)} km remaining<br>HDG ${String(hdg).padStart(3,'0')}°`;$('percent').textContent=th.value+'%';requestAnimationFrame(frame)}
+reset();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
